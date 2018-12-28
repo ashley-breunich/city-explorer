@@ -4,37 +4,35 @@ class Form extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
+        apiURL: "https://city-explorer-backend.herokuapp.com",
         city: ""
       };
     }
-  
+
     handleDynamicWords = event => {
-      let words = event.target.value;
-      this.setState({ name: words });
-    };
-  
-    handleSubmit = event => {
+        let words = event.target.value;
+        this.setState({ city: words });
+      };
+
+    fetchCityData = event => {
       event.preventDefault();
-    };
-  
-    handleClick = event => {
-      this.setState({ count: this.state.count + 1 });
+    //   let cityName = event.target.value;
+    //   console.log(cityName);
+    //   this.setState({ city: cityName });
+      console.log(this.state.city);
     };
   
     render() {
       return (
         <React.Fragment>
           <main>
-            <form id="url-form">
-              <label>Enter the URL to your deployed back end, making sure to remove the trailing forward slash</label>
-              <input type="text" value="https://city-explorer-backend.herokuapp.com" id = "back-end-url"></input>
-              </form>
-              <form>
-              <input onChange={this.handleDynamicWords} />
-            </form>
-            <button className="submit" onClick={this.handleClick}>
+              <form id="search-form">
+              <label>Search for a location</label>
+              <input onChange={this.handleDynamicWords} type="text" name="search" id="input-search" placeholder="Enter a location here"></input>
+              <button className="submit" onClick={this.fetchCityData}>
               Explore
             </button>
+            </form>
           </main>
         </React.Fragment>
       );
