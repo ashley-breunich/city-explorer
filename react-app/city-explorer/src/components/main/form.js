@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
+import superagent from 'superagent';
 
 class Form extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        apiURL: "https://city-explorer-backend.herokuapp.com",
+        method: 'get',
+        body: {},
         city: ""
       };
     }
@@ -16,10 +18,16 @@ class Form extends React.Component {
 
     fetchCityData = event => {
       event.preventDefault();
-    //   let cityName = event.target.value;
-    //   console.log(cityName);
-    //   this.setState({ city: cityName });
       console.log(this.state.city);
+      let location = `https://city-explorer-backend.herokuapp.com/location`
+      console.log(location);
+      superagent(this.state.method, location)
+      .query({data: this.state.city})
+      .then( response => {
+          let body = response.body;
+          this.setState({body});
+          console.log('state', this.state.body);
+      })
     };
   
     render() {
@@ -33,6 +41,7 @@ class Form extends React.Component {
               Explore
             </button>
             </form>
+            <img id="map" className="hide" src="" alt="Map of search query" />
           </main>
         </React.Fragment>
       );
