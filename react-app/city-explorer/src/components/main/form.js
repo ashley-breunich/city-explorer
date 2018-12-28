@@ -1,5 +1,6 @@
 import React from 'react';
 import superagent from 'superagent';
+import Map from './map.js';
 
 class Form extends React.Component {
     constructor(props) {
@@ -27,6 +28,10 @@ class Form extends React.Component {
           let body = response.body;
           this.setState({body});
           console.log('state', this.state.body);
+        //   displayMap(this.state.body);
+      })
+      .catch(error => {
+          console.log(error);
       })
     };
   
@@ -41,7 +46,7 @@ class Form extends React.Component {
               Explore
             </button>
             </form>
-            <img id="map" className="hide" src="" alt="Map of search query" />
+            <Map location={this.state.body}/>
           </main>
         </React.Fragment>
       );
