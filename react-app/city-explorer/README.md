@@ -18,6 +18,7 @@ We currently have a live City Explorer application running on 2 servers. The fro
 [Here is a link](https://github.com/ashley-breunich/city-explorer) to the Github repo.
 
 ## UML Drawing
+![UML Drawing](assets/city-explorer-uml.jpg)
 
 ## Available Scripts
 
