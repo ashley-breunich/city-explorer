@@ -1,6 +1,7 @@
- import React from 'react';
+import React from 'react';
 import superagent from 'superagent';
 import Map from './map.js';
+import Results from './results.js';
 
 class Form extends React.Component {
     constructor(props) {
@@ -49,6 +50,7 @@ class Form extends React.Component {
             </button>
             </form>
             {!this.state.isHidden && <Map location={this.state.body} visibility={this.state.isHidden}/>}
+            {!this.state.isHidden && <Results location={this.state.body} visibility={this.state.isHidden}/>}
           </main>
         </React.Fragment>
       );
