@@ -12,7 +12,7 @@ We currently have a live City Explorer application running on 2 servers. The fro
 * Render into each column, the properly formatted results of each service call
 
 ## Deployed Site Link
-[Here is a link]() to the deployed site.
+[Here is a link](http://breunich-city-explorer.s3-website-us-west-2.amazonaws.com/) to the deployed site.
 
 ## Link to Repo
 [Here is a link](https://github.com/ashley-breunich/city-explorer) to the Github repo.
